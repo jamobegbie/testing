@@ -12,17 +12,27 @@ jobs:
       - run: echo "This is a build step"      # similar to "script" in GitLab
 
   test:
+    needs: build
     runs-on: ubuntu-20.04
     steps:
       - run: echo "This is a test step"
 
   integration:
+    needs: test
     runs-on: ubuntu-20.04
     steps:
       - run: echo "This is an integration step"
       - run: exit 1
+    continue-on-error: true
 
   prod:
+    needs: integration
     runs-on: ubuntu-20.04
     steps:
       - run: echo "This is a deploy step"
+      
+  artifact:
+    needs: prod
+    runs-on: ubuntu:latest
+    steps:
+      - run: echo "test" > test.txt
