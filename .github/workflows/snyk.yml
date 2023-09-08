@@ -20,4 +20,4 @@ jobs:
         SNYK_TOKEN: ${{ secrets.SNYK_TOKEN  }}
         ORG_ID: e5d6cf84-a29f-42ed-b73a-731d727d8853
       with:
-        command: code
+        command: monitor, Snyk test
