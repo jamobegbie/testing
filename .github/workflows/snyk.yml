@@ -35,8 +35,13 @@ jobs:
         SNYK_TOKEN: ${{ secrets.SNYK_TOKEN  }}
       with:
         args: --sarif-file-output=code.sarif
-        command: code test
+        command: code test --json > sast_output.json
     - name: Upload result to GitHub Code Scanning
       uses: github/codeql-action/upload-sarif@v2
       with:
         sarif_file: code.sarif
+    - name: Store results to JSON
+      uses: actions/upload-artifact@v2
+      with:
+        name: sast-json-output
+        path: sast-output.json
