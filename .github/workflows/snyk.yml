@@ -29,11 +29,10 @@ jobs:
     steps:
     - uses: actions/checkout@master
     - name: sast
-      uses: snyk/actions/code@master
+      uses: snyk/actions/maven@master
       continue-on-error: true
       env:
         SNYK_TOKEN: ${{ secrets.SNYK_TOKEN  }}
-        ORG_ID: e5d6cf84-a29f-42ed-b73a-731d727d8853
       with:
         args: --sarif-file-output=code.sarif
     - name: Upload result to GitHub Code Scanning
