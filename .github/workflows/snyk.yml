@@ -44,4 +44,4 @@ jobs:
       uses: actions/upload-artifact@v2
       with:
         name: sast-json-output
-        path: sast-output.json
+        path: sast_output.json
