@@ -20,7 +20,7 @@ jobs:
         ORG_ID: e5d6cf84-a29f-42ed-b73a-731d727d8853
       with:
         args: --sarif-file-output=test.sarif
-        command: snyk test --json > sca_output.json
+   #     command: snyk test --json > sca_output.json
     - name: Upload result to GitHub Code Scanning
       uses: github/codeql-action/upload-sarif@v2
       with:
