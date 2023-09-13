@@ -19,12 +19,12 @@ jobs:
         SNYK_TOKEN: ${{ secrets.SNYK_TOKEN  }}
         ORG_ID: e5d6cf84-a29f-42ed-b73a-731d727d8853
       with:
-        #args: --sarif-file-output=test.sarif
-        command: snyk test --json > sca_output.json
-    #- name: Upload result to GitHub Code Scanning
-    #  uses: github/codeql-action/upload-sarif@v2
-    #  with:
-     #   sarif_file: test.sarif
+        args: --sarif-file-output=test.sarif
+        command: test --json > sca_output.json
+    - name: Upload result to GitHub Code Scanning
+      uses: github/codeql-action/upload-sarif@v2
+      with:
+        sarif_file: test.sarif
     - name: Store results to JSON
       uses: actions/upload-artifact@v3
       with:
