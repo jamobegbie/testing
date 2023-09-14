@@ -13,7 +13,7 @@ jobs:
     steps:
     - uses: actions/checkout@master
     - name: SCA
-      uses: snyk/actions/python@master
+      uses: snyk/actions/gradle@master
       continue-on-error: true
       env:
         SNYK_TOKEN: ${{ secrets.SNYK_TOKEN  }}
@@ -35,7 +35,7 @@ jobs:
     steps:
     - uses: actions/checkout@master
     - name: sast
-      uses: snyk/actions/maven@master
+      uses: snyk/actions/gradle@master
       continue-on-error: true
       env:
         SNYK_TOKEN: ${{ secrets.SNYK_TOKEN  }}
