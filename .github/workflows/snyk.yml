@@ -38,7 +38,7 @@ jobs:
       env:
         SNYK_TOKEN: ${{ secrets.SNYK_TOKEN  }}
       with:
-        repository: ${{ github.event.inputs.targetRepo }}
+        entryPoint: ${{ github.event.inputs.targetRepo }}
         args: --sarif-file-output=code.sarif
         command: code test --json > sast_output.json
     - name: Upload result to GitHub Code Scanning
