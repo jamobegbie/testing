@@ -4,5 +4,5 @@ on:
   workflow_dispatch:
 jobs:
   microservice-snyk:
-    uses: jamobegbie/django.nv/.github/workflows/snyk.yml
+    uses: jamobegbie/django.nv/.github/workflows/snyk.yml@v0
     
