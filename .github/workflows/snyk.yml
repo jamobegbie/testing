@@ -4,12 +4,4 @@ on:
   workflow_dispatch:
 jobs:
   microservice-snyk:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-      
-      - name: Run Snyk checks
         uses: jamobegbie/django.nv/.github/workflows/snyk.yml@main
-        with:
-          snyk-token: ${{ secrets.SNYK_TOKEN }}
