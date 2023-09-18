@@ -5,3 +5,5 @@ on:
 jobs:
   microservice-snyk:
       uses: jamobegbie/django.nv/.github/workflows/snyk.yml@v2
+      secrets:
+        SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
