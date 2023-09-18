@@ -4,7 +4,9 @@ on:
   workflow_dispatch:
 jobs:
   microservice-snyk:
-    uses: jamobegbie/django.nv/.github/workflows/snyk.yml@v1
-    with:
-      SNYK_TOKEN: ${{ secrets.SNYK_TOKEN  }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: jamobegbie/django.nv/.github/workflows/snyk.yml@v1
+      - with:
+          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN  }}
     
