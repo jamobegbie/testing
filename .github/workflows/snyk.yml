@@ -1,12 +1,10 @@
 name: Snyk
 
-on: 
-  push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
-
+on:
   workflow_dispatch:
+    inputs:
+      targetRepo:
+        description: 'Repository to scan (in owner/repo format)'
 jobs:
   SCA:
     runs-on: ubuntu-latest
@@ -40,6 +38,7 @@ jobs:
       env:
         SNYK_TOKEN: ${{ secrets.SNYK_TOKEN  }}
       with:
+        repository: ${{ github.event.inputs.targetRepo }}
         args: --sarif-file-output=code.sarif
         command: code test --json > sast_output.json
     - name: Upload result to GitHub Code Scanning
